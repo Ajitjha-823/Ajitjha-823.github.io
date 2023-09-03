@@ -123,7 +123,7 @@ firebase
 
 auth.onAuthStateChanged((firebaseUser) => {
 if (firebaseUser) {
-    window.location.href = "login.html";
+    window.location.href = "Dashboard.html";
     showHomepage();
 }
 });
