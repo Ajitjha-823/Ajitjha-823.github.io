@@ -39,18 +39,21 @@
 		/* Style the tab buttons */
 /* Style the tab */
 .tab , .profile-tab{
-  overflow: hidden;
+  overflow: hidden;display: block;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  font-size: 18px;
+  text-align: left;
+  border-right: 1px solid #ccc; 
+  width: 100%;
 }
 
 /* Change background color of buttons on hover */
@@ -60,9 +63,8 @@
 
 /* Create an active/current tablink class */
 .tab button.active {
-  border-bottom: 3px solid #e67e22; 
-  border-right: 2px solid #ccc; 
-  color:#e67e22;
+  background-color: #e67e22;
+  color:white;
   font-weight: 500;
 }
 
@@ -77,27 +79,12 @@
 .profile-container {
 	display: flex;
     border: 1px solid #ccc;
-	align: center;
-}
-.profile-tab-container{
-	width: 25%;
+	margin: 0% 10%;
 }
 .profile-tab-content-container{
 	width: 100%;
 }
-.profile-tab button{
-  background-color: inherit;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  text-align: left;
-  padding: 15px;
-  border-right: 1px solid #ccc; 
-}
-.profile-tab button:hover {
-  background-color: #ddd;
-}
+
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -121,12 +108,15 @@ input,select{
 
 button {
     cursor: pointer;
-	display: block;
 	overflow:visible;
 }
 .text-right {
     text-align: right!important;
-	
+	margin: 0% 10%;
+}
+.text-left {
+    text-align: left!important;
+	padding-top:15px ;
 }
 .btn-primary , .uploadbtn{
     color: #fff;
@@ -209,12 +199,16 @@ hr{
 				<img src="resources/img/logo.png" alt="Odia Delights Hub Logo" class="logo-black">
 				
 				<ul class="main-nav js--main-nav">  
-					<li><a href="userProfile.html">My Account</a></li>
+					<li><a href="login.html">Home</a></li>
+					<li><a href="profile.html">My Account</a></li>
 					<li><a href="#" id="signout">Sign Out</a></li>
+					
 				</ul>
 				<a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a> 
 			</div>
+		
 		<div class="hero-text">
+			
 		</div>
 
 		
@@ -223,55 +217,85 @@ hr{
 	
 	<!-- Features section -->
 	<!-- Tab links -->
-<div class="tab">
-	<button class="tablinks" onclick="openCity(event, 'Order Online')" id="defaultOpen">Order Online</button>
-	<button class="tablinks" onclick="openCity(event, 'Dining Out')">Dining Out</button>
-	<button class="tablinks" onclick="openCity(event, 'Clubs & Resorts')">Clubs & Resorts</button>
-  </div>
+
+  
+  <!-- Tab content -->
+  
+	<div class="text-left"><h3>Account Setting</h3></div>
+	<div class="profile-container">
+				<div class="tab">
+					<button class="tablinks" onclick="openCity(event, 'general')" id="defaultOpen">General</button>
+					<button class="tablinks" onclick="openCity(event, 'forgot-password')">Forgot Password</button>
+					<button class="tablinks" onclick="openCity(event, 'more-info')">More Info</button>
+				  </div>
+
+		<div class="profile-tab-content-container">
+			<div class="card-body"  id="general">
+				<div class="profilepicsection">
+					<img class="profilepicture" id="displayImage" alt="profilepic" > 
+					<div class="uploadsection">
+					<label class="btn btn-outline-primary">Choose Image to upload<br>
+					<input type="file" id="profilePictureInput" name="profilePicture" onchange="uploadPicture()">
+					</label><br>
+					<button class="uploadbtn" type="button" onclick="uploadPicture()">Reset</button></div>
+				</div>
+				
+				<div class="form-group">
+					<label class="label">First Name</label>
+					<input type="text" placeholder="First-name" id="firstname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Last Name</label>&nbsp;
+					<input type="text" placeholder="Last-name" id="lastname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">E-mail</label>
+					<input type="email" placeholder="Email" id="email">
+				</div>
+				<div class="form-group">
+					<label class="form-label" >Gender:</label>
+					<select class="custom-selects" id="gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Others">Other</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Date Of Birth (DOB)</label>
+					<input type="text" placeholder="[YYYY-MM-DD]" pattern="\d{4}-\d{2}-\d{2}" id="dob" required>
+				</div>
+				<div id="Dining Out" class="tabcontent">
+					<h3>Dining Out</h3>
+					<p>Dining Out is the capital of France.</p>
+				  </div>
+			</div>
+			<div class="card-body"  id="forgot-password">
+
+			</div>
+			<div class="card-body"  id="more-info">
+
+			</div>
+			<div class="card-body" id="Change password">
+				
+			</div>
+		</div>
+
+	</div>
+	<div class="text-right">
+	<button class="btn btn-primary" id="submit" onclick="update()">Save Changes</button>&nbsp;
+	<button class="btn btn-primary" id="submit" onclick="get()">cancel</button>
+		<!-- Tab links -->
+
   
   <!-- Tab content -->
   <div id="Order Online" class="tabcontent">
 	
   </div>
   
-  <div id="Dining Out" class="tabcontent">
-	<h3>Dining Out</h3>
-	<p>Dining Out is the capital of France.</p>
-  </div>
   
-  <div id="Clubs & Resorts" class="tabcontent">
-	<div class="row">
-		<div class="col span 1-of-5 box">
-			<div class="scrollmenu">
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-				<div class="scroll-container"><img src="resources/img/kolkata.jpg" alt="Sample">
-					<div> <a href="#home">Home</a></div>
-				</div>
-			</div>
-		</div>
-	</div>
+     </div>
+
   </div>
-	
-		
-	
-	
 	<!-- Footer section -->
 
 	<footer>
@@ -369,7 +393,7 @@ hr{
 	<script>
 	function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
+  tabcontent = document.getElementsByClassName("card-body");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
@@ -385,25 +409,7 @@ hr{
 document.getElementById("defaultOpen").click();
  
 	</script>
-	<script>
-		function openProfile(evt, cityName) {
-	  var i, tabcontent, tablinks;
-	  tabcontent = document.getElementsByClassName("profile-tab-content-container");
-	  for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
-	  }
-	  tablinks = document.getElementsByClassName("tablinks");
-	  for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
-	  }
-	  document.getElementById(cityName).style.display = "block";
-	  evt.currentTarget.className += " active";
-	}
-	
-	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("defaultOpen").click();
-	 
-		</script>
+
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
   // Your script code here
