@@ -189,10 +189,10 @@ input[type="submit"]:active { border: 2px solid #cf6d17; }
 /* Header styles
    ==========================================*/
 header {
-	background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/hero2.jpg);
+	background-color:#333;
 	background-size: cover;
 	background-position: center;
-	height: 100vh; 
+	height: 15vh; 
 	background-attachment: fixed;
 }
 
