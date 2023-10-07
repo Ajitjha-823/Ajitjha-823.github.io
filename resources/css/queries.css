@@ -72,6 +72,9 @@
 	.footer-nav {
 		margin-bottom: 10px;
 	}
+	aside {
+		padding-left: 15px;
+	}
 }
 
 
@@ -175,24 +178,14 @@
 		width: 100%;
 	}
 
-	.map-box {
-		width: 100%;
-		height: auto;
-		position: relative;
-	}
-
-	.map {
-		width: 100%;
-		height: 300px;
-		position: relative;
-		z-index: 0;
-	}
-
 	.form-box {
 		position: relative;
 		width: 100%;
 		height: auto;
 		padding: 30px 20px 0 30px;
+	}
+	aside {
+		padding-left: 15px;
 	}
 }
 

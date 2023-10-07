@@ -1,14 +1,7 @@
-
-  // Import the functions you need from the SDKs you need
- 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBYY5xGe7FiPk_BuI28NTCmwt-HCrOkwPQ",
     authDomain: "odia-delights-hub.firebaseapp.com",
+    databaseURL: "https://odia-delights-hub-default-rtdb.firebaseio.com",
     projectId: "odia-delights-hub",
     storageBucket: "odia-delights-hub.appspot.com",
     messagingSenderId: "811197669421",
@@ -17,5 +10,5 @@
   };
 
   // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-
+  const app=firebase.initializeApp(firebaseConfig);
+  

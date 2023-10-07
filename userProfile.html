@@ -48,9 +48,9 @@
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: .75rem 1.25rem;
   transition: 0.3s;
-  font-size: 18px;
+  font-size: inherit;
   text-align: left;
   border-right: 1px solid #ccc; 
   width: 100%;
@@ -96,12 +96,12 @@
 }
 label{
 	display: inline-block;
-	width: auto;
+	width: 100%;
 	text-align: left;
 	margin-bottom: 5px;
 }
 input,select{
-	width: 200px;
+	width: 100%;
 	padding: 8px;
 	box-sizing: border-box;
 }
@@ -223,18 +223,22 @@ hr{
   
 	<div class="text-left"><h3>Account Setting</h3></div>
 	<div class="profile-container">
-				<div class="tab">
+				<div class="tab span-1-of-3">
 					<button class="tablinks" onclick="openCity(event, 'general')" id="defaultOpen">General</button>
-					<button class="tablinks" onclick="openCity(event, 'forgot-password')">Forgot Password</button>
-					<button class="tablinks" onclick="openCity(event, 'more-info')">More Info</button>
+					<button class="tablinks" onclick="openCity(event, 'address-contact')">Addres & Contact</button>
+					<button class="tablinks" onclick="openCity(event, 'change-password')">Change Password</button>
+					<button class="tablinks" onclick="openCity(event, 'no idea')">More Info</button>
+					<button class="tablinks" onclick="openCity(event, 'social-links')">Social links</button>
+					<button class="tablinks" onclick="openCity(event, 'notification')">Notification setting</button>
 				  </div>
 
-		<div class="profile-tab-content-container">
+		<div class="profile-tab-content-container span-2-of-3">
 			<div class="card-body"  id="general">
 				<div class="profilepicsection">
-					<img class="profilepicture" id="displayImage" alt="profilepic" > 
+					<img class="profilepicture" id="displayImage" alt="Profile_Image" > 
 					<div class="uploadsection">
-					<label class="btn btn-outline-primary">Choose Image to upload<br>
+					<label class="btn
+					 btn-outline-primary">Choose Image to upload<br>
 					<input type="file" id="profilePictureInput" name="profilePicture" onchange="uploadPicture()">
 					</label><br>
 					<button class="uploadbtn" type="button" onclick="uploadPicture()">Reset</button></div>
@@ -264,19 +268,61 @@ hr{
 					<label class="form-label">Date Of Birth (DOB)</label>
 					<input type="text" placeholder="[YYYY-MM-DD]" pattern="\d{4}-\d{2}-\d{2}" id="dob" required>
 				</div>
-				<div id="Dining Out" class="tabcontent">
-					<h3>Dining Out</h3>
-					<p>Dining Out is the capital of France.</p>
-				  </div>
 			</div>
-			<div class="card-body"  id="forgot-password">
 
+			<!--Change password Tab content -->
+			<div class="card-body"  id="change-password">
+				<div class="form-group">
+					<label class="form-label">Current password</label>
+					<input type="password" placeholder="" id="firstname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">New password</label>
+					<input type="password" placeholder="" id="lastname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Repeat new password</label>
+					<input type="password" placeholder="" id="email">
+				</div>
 			</div>
-			<div class="card-body"  id="more-info">
 
-			</div>
-			<div class="card-body" id="Change password">
+			<div class="card-body"  id="address-contact">
+				<div class="form-group">
+					<label class="form-label">Repeat new password</label>
+					<input type="password" placeholder="" id="email">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Repeat new password</label>
+					<input type="password" placeholder="" id="email">
+				</div>
+				<h3>Address</h3>
+				<div class="form-group">
+					<label class="form-label">Repeat new password</label>
+					<input type="password" placeholder="" id="email">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Repeat new password</label>
+					<input type="password" placeholder="" id="email">
+				</div>
 				
+			</div>
+			<div class="card-body" id="social-links">
+				<div class="form-group">
+					<label class="form-label">Facebook</label>
+					<input type="text" placeholder="https://www.facebook.com/user" id="lastname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Twitter</label>
+					<input type="text" placeholder="https://www.twitter.com/user" id="lastname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Linkedin</label>
+					<input type="text" placeholder="https://www.kinkedin.com/user" id="lastname">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Instagram</label>
+					<input type="text" placeholder="https://www.instagram.com/user" id="lastname">
+				</div>
 			</div>
 		</div>
 

@@ -92,10 +92,11 @@ $(document).ready(function(){
 	  modalOverlay.style.display = "none";
 	});
 
+	 
 	const openSignBtn = document.getElementById("openSignBtn");
 	const closeSignBtn = document.getElementById("closeSignBtn");
 	const signOverlay = document.getElementById("signOverlay");
-  
+
 	openSignBtn.addEventListener("click", () => {
 	  signOverlay.style.display = "flex";
 	});
