@@ -96,7 +96,6 @@
 }
 label{
 	display: inline-block;
-	width: 100%;
 	text-align: left;
 	margin-bottom: 5px;
 }
@@ -116,7 +115,8 @@ button {
 }
 .text-left {
     text-align: left!important;
-	padding-top:15px ;
+	padding-top:25px ;
+	margin-left: 12%;
 }
 .btn-primary , .uploadbtn{
     color: #fff;
@@ -186,6 +186,21 @@ button {
 hr{
 	height: 1px;
 }
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;    margin-top: 1rem!important;
+}
+.switcher{
+	display:inline-flex;
+}
 	</style>
 </head>
 <body>
@@ -233,12 +248,11 @@ hr{
 				  </div>
 
 		<div class="profile-tab-content-container span-2-of-3">
-			<div class="card-body"  id="general">
+			<form class="card-body"  id="general">
 				<div class="profilepicsection">
 					<img class="profilepicture" id="displayImage" alt="Profile_Image" > 
 					<div class="uploadsection">
-					<label class="btn
-					 btn-outline-primary">Choose Image to upload<br>
+					<label class="btn btn-outline-primary">Choose Image to upload<br>
 					<input type="file" id="profilePictureInput" name="profilePicture" onchange="uploadPicture()">
 					</label><br>
 					<button class="uploadbtn" type="button" onclick="uploadPicture()">Reset</button></div>
@@ -255,6 +269,12 @@ hr{
 				<div class="form-group">
 					<label class="form-label">E-mail</label>
 					<input type="email" placeholder="Email" id="email">
+					<div class="alert alert-warning">
+						Your email is not confirmed. Please check your inbox.
+						<br>
+						<a href="javasvript:void(0)">Resend confirmation</a>
+						
+					</div>
 				</div>
 				<div class="form-group">
 					<label class="form-label" >Gender:</label>
@@ -268,7 +288,7 @@ hr{
 					<label class="form-label">Date Of Birth (DOB)</label>
 					<input type="text" placeholder="[YYYY-MM-DD]" pattern="\d{4}-\d{2}-\d{2}" id="dob" required>
 				</div>
-			</div>
+			</form>
 
 			<!--Change password Tab content -->
 			<div class="card-body"  id="change-password">
@@ -288,23 +308,52 @@ hr{
 
 			<div class="card-body"  id="address-contact">
 				<div class="form-group">
-					<label class="form-label">Repeat new password</label>
+					<label class="form-label">Mobile no</label>
 					<input type="password" placeholder="" id="email">
 				</div>
 				<div class="form-group">
-					<label class="form-label">Repeat new password</label>
+					<label class="form-label">Email</label>
 					<input type="password" placeholder="" id="email">
 				</div>
+				<br>
 				<h3>Address</h3>
+				<br>
 				<div class="form-group">
-					<label class="form-label">Repeat new password</label>
+					<label class="form-label">Name</label>
 					<input type="password" placeholder="" id="email">
 				</div>
 				<div class="form-group">
-					<label class="form-label">Repeat new password</label>
+					<label class="form-label">Address Line 1</label>
 					<input type="password" placeholder="" id="email">
 				</div>
-				
+				<div class="form-group">
+					<label class="form-label">Address Line 2</label>
+					<input type="password" placeholder="" id="email">
+				</div>
+				<div class="form-group">
+					<label class="form-label">Landmark</label>
+					<input type="password" placeholder="" id="email">
+				</div>
+				<div class="form-group">
+					<div class="col span-1-of-2">
+						<label class="form-label">Country</label>
+						<input type="password" placeholder="" id="email">
+					</div>
+					<div class="col span-1-of-2">
+						<label class="form-label">State</label>
+						<input type="password" placeholder="" id="email">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col span-1-of-2">
+						<label class="form-label">City</label>
+						<input type="password" placeholder="" id="email">
+					</div>
+					<div class="col span-1-of-2">
+						<label class="form-label">Pin Code</label>
+						<input type="password" placeholder="" id="email">
+					</div>
+				</div>
 			</div>
 			<div class="card-body" id="social-links">
 				<div class="form-group">
@@ -324,7 +373,15 @@ hr{
 					<input type="text" placeholder="https://www.instagram.com/user" id="lastname">
 				</div>
 			</div>
+			<form class="card-body" id="notification">
+				<div class="form-group  switcher">
+					
+						<input type="checkbox">
+						<label class="form-label">Email me when someone comments on my article.</label>
+				</div>
+			</form>
 		</div>
+	
 
 	</div>
 	<div class="text-right">
@@ -432,7 +489,7 @@ hr{
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-	  <script src="ftest.js"></script>
+	  <script src="resource/js/ftest.js"></script>
     <script src="resources/js/script2.js"></script>
 	<script src="resources/js/signup.js"></script>
     
@@ -463,7 +520,39 @@ document.getElementById("defaultOpen").click();
 });
 
 	</script>
+<script>
+	function updateActiveForm() {
+      // Get the current user ID (assuming user is authenticated)
+      const userId = firebase.auth().currentUser.uid;
 
+      // Determine the active form dynamically
+      const activeForm = document.querySelector('form.active');
+
+      if (!activeForm) {
+        console.error('No active form found.');
+        return;
+      }
+
+      // Get data from the active form
+      const formData = {};
+      activeForm.querySelectorAll('input').forEach(input => {
+        formData[input.name] = input.value;
+      });
+
+      // Determine the path based on the active form
+      const formId = activeForm.id;
+      const dataRef = database.ref(`${formId}s/${userId}`);
+
+      // Update the data in the database
+      dataRef.update(formData)
+        .then(() => {
+          console.log('Data updated successfully!');
+        })
+        .catch((error) => {
+          console.error('Error updating data:', error);
+        });
+    }
+</script>
 
 </body>
 </html>
