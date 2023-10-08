@@ -213,6 +213,7 @@ header {
 	height:100px;
 	width: auto;
 	float: left;
+	margin-top: 20px;
 }
 
 .logo-black {
@@ -226,7 +227,7 @@ header {
 .main-nav {
 	float: right;
 	list-style: none;
-	margin-top: 40px;
+	margin-top: 55px;
 }
 
 .main-nav li {
@@ -518,7 +519,7 @@ textarea {
 
 textarea { height: 100px; }
 
-input[type="checkbox"] { margin: 0; }
+input[type="checkbox"] { margin: 10px 5px 10px 0; }
 
 .form-box {
 	position: relative;
