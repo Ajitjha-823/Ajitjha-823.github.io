@@ -32,7 +32,7 @@ body {
 }
 
 .row {
-	max-width: 95%; 
+	max-width: 1140px; 
 	margin: 0 auto; 
 }
 
@@ -453,14 +453,14 @@ cite img {
 }
 
 .plan-box div {
-	padding: 15px 35px;
+	padding: 15px;
 	border-bottom: 1px solid #efefef;
 }
 
 .plan-price {
 	font-size: 3em;
 	margin-bottom: 10px;
-	font-weight: 5000;
+	font-weight: 100;
 	color: #e67e22;
 	
 }
@@ -517,6 +517,8 @@ textarea {
 
 textarea { height: 100px; }
 
+input[type="checkbox"] { margin: 10px 5px 10px 0; }
+
 .form-box {
 	position: relative;
 	width: 100%;
@@ -556,12 +558,12 @@ footer-nav {
 	margin-right: 20px;
 }
 
-footer-nav li:last-child,aside li,
+footer-nav li:last-child,
 social-icons li:last-child {
 	margin-right: 0;
 }
 
-.footer-nav li a:link,aside li a:link,
+.footer-nav li a:link,
 .footer-nav li a:visited,
 .social-icons li a:link,
 .social-icons li a:visited {
@@ -570,7 +572,7 @@ social-icons li:last-child {
 	color: #888;
 }
 
-.footer-nav li a:hover,aside li a:active,
+.footer-nav li a:hover,
 .footer-nav li a:active {
 	color: #ddd;
 }
@@ -631,9 +633,10 @@ footer p {
 	-webkit-animation-duration: 1s;
 	        animation-duration: 1s;
 }
+
 /* Pop up
    ===================================*/
-   .modal-overlay {
+.modal-overlay {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -669,7 +672,6 @@ footer p {
 	font-size: 1.5em;
 	margin-right: 25px;
 }
-
 /* Pop up sign
    ===================================*/
 .forms-out {
@@ -801,28 +803,4 @@ footer p {
 		padding: 5px;
 		font-size: 1.5em;
 		margin-right: 25px;
-	}
-/* aside section
-   ===================================*/
-
-   aside li{
-	display:block;
-	margin-right: 20px;
-}
-	aside h3{
-		font-size: 1.1rem;
-		letter-spacing: 0.2rem;
-		margin: 0px 0px 1rem;
-		text-align: left;
-	}
-	aside a{
-		font-size: 0.9rem;
-		margin: 1rem;
-		text-align: left;
-	}
-	aside li a:link ,a:visited{
-color:#888;
-	}
-	aside li a:hover ,a:active{
-		color:#e67e22;
 	}
