@@ -42,8 +42,9 @@ section { padding: 80px 0px; }
 h1,
 h2,
 h3 {
-	font-weight: 300;
+	font-weight: 500;
 	text-transform: uppercase;
+	color: #e67e22;
 }
 
 h1 {
@@ -105,14 +106,13 @@ a:link,
 a:visited {
 	color: #e67e22;
 	text-decoration: none;
-	border-bottom: 1px solid #e67e22;
 	padding-bottom: 1px;
 	transition: border-bottom 0.2s, color 0.2s
 }
 
 a:hover,
 a:active {
-	color: #555;
+	color: #555 ;
 	border-bottom: 1px solid transparent;
 }
 
@@ -238,7 +238,7 @@ header {
 .main-nav li a:link,
 .main-nav li a:visited {
 	padding: 8px 0;
-	color: white;
+	color: #e67e22; 
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 0.9em;
@@ -299,146 +299,18 @@ header {
 
  /* Meals showcase section 
     =================================*/
-.meals-showcase {
-	list-style: none;
-	width: 100%; 
-}
-
-.meals-showcase li {
-	display: block;
-	float: left;
-	width: 25%; 
-
-}
-
-.meal-photo {
-	width: 100%;
-	overflow: hidden; 
-	background-color: #000; 
-}
-
-.meal-photo img {
-	opacity: 0.7; 
-	width: 100%;
-	height: auto;
-	-webkit-transform: scale(1.16);
-	        transform: scale(1.16); 
-	transition: -webkit-transform 0.5s, opacity 0.5s;
-	transition: transform 0.5s, opacity 0.5s;
-}
-
-.meal-photo img:hover {
-	-webkit-transform: scale(1.1);
-	        transform: scale(1.1);
-	opacity: 1; 
-}
-
-.meals { padding: 0; }
 
 
 /* How it works section
    ====================================*/
-.steps {
-	background-color: #f4f4f4;
-}
 
-.steps-box:first-child {
-	text-align: right; 
-	padding-right: 3%;
-	margin-top: 30px;
-}
-
-.steps-box:last-child {
-	padding-left: 3%;
-	margin-top: 70px;
-}
-
-.app-screen { width: 40%; }
-
-.works-steps { margin-bottom: 50px; }
-
-.works-steps:last-of-type{ 
-	margin-bottom: 80px;
-}
-
-.works-steps div {
-	color: #e67e22;
-	border: 2px solid #e67e22;
-	display: inline-block; 
-	border-radius: 50%;
-	height: 55px;
-	width: 55px;
-	text-align: center;
-	padding: 5px;
-	float: left;
-	font-size: 1.5em;
-	margin-right: 25px;
-}
-
-.btn-app:link,
-.btn-app:visited { border: 0; }
-
-.btn-app img {
-	height: 50px;
-	width: auto;
-	margin-right: 15px;
-}
-.btn-call{
-	height: 550px;
-	width: auto;
-	margin-right: 15px;
-}
 
 /* Cities section
    ===========================================*/
-.box img {
-	width: 100%;
-	height: auto;
-	margin-bottom: 15px;
-}
-
-.city-features { margin-bottom: 5px; font-size: medium;}
 
 /* Customer Experience
    ===========================================*/
-.testimonials {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers-min.jpg);
-	background-size: cover;
-	color: #fff;
-	background-attachment: fixed; 
-}
 
-blockquote {
-	padding: 2%;
-	font-style: italic;
-	line-height: 1.5;
-	position: relative;
-	margin-top: 30px;
-}
-
-blockquote:before {
-	content: "\201C";
-	font-size: 4.5em;
-	display: block;
-	position: absolute;
-	top: -60px;
-	left: -3px;
-}
-
-cite {
-	font-size: 0.9em;
-	font-style: normal;
-	font-weight: 300;
-	margin-top: 25px;
-	display: block;
-}
-
-cite img {
-	height: 45px;
-	border-radius: 50%;
-	margin-right: 10px;
-	vertical-align: middle;
-}
 
 /* Sign Up section
    ===========================================*/
@@ -584,6 +456,9 @@ footer p {
 	text-align: center;
 	margin-top: 20px;
 }
+footer li{
+	list-style: none;
+}
 .social-icons li a:link,
 .social-icons li a:visited {
 	font-size: 1.6em;
@@ -613,7 +488,22 @@ footer p {
 .social-icons li a:active {
 
 }
+footer a:link,
+a:visited {
+	color:  #888;
+	text-decoration: none;
+	padding-bottom: 1px;
+	transition: border-bottom 0.2s, color 0.2s
+}
 
+footer a:hover,
+a:active {
+	color:  #e67e22;
+	border-bottom: 1px solid transparent;
+}
+footer h3{ 
+	color:  #e67e22;
+}
 
 /* Animations
    ===================================*/

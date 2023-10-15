@@ -39,7 +39,9 @@
 		/* Style the tab buttons */
 /* Style the tab */
 .tab , .profile-tab{
-  overflow: hidden;display: block;
+  overflow: hidden;
+  display: block;
+  font-size: larger;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -47,10 +49,9 @@
   background-color: inherit;
   border: none;
   outline: none;
-  cursor: pointer;
   padding: .75rem 1.25rem;
   transition: 0.3s;
-  font-size: inherit;
+  font-size: 16px;
   text-align: left;
   border-right: 1px solid #ccc; 
   width: 100%;
@@ -65,7 +66,7 @@
 .tab button.active {
   background-color: #e67e22;
   color:white;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 /* Style the tab content */
@@ -79,7 +80,8 @@
 .profile-container {
 	display: flex;
     border: 1px solid #ccc;
-	margin: 0% 10%;
+	margin: 20px 10%;
+	
 }
 .profile-tab-content-container{
 	width: 100%;
@@ -111,12 +113,11 @@ button {
 }
 .text-right {
     text-align: right!important;
-	margin: 0% 10%;
 }
 .text-left {
     text-align: left!important;
-	padding-top:25px ;
-	margin-left: 12%;
+	padding-top:25px;
+	margin-left: 10%;
 }
 .btn-primary , .uploadbtn{
     color: #fff;
@@ -126,15 +127,14 @@ button {
 .btn {
     display: inline-block;
     font-weight: 400;
-    color: #212529;
     text-align: center;
     vertical-align: middle;
-    background-color: transparent;
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
+	width: auto;
 }
 .btn-outline-primary {
     color: #e67e22;
@@ -201,6 +201,65 @@ hr{
 .switcher{
 	display:inline-flex;
 }
+
+
+
+
+	</style>
+
+	<style>
+		/* styles.css */
+#chat-container {
+  margin: auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#chat-header {
+  background-color: #e67e22;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#chat {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#message-input {
+  width: 80%;
+  padding: 5px;
+}
+
+button {
+  width: 18%;
+  padding: 5px;
+}
+
+/* Style for user's messages */
+.message-container {
+  margin: 10px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+
+.sent-message {
+  background-color: #4CAF50;
+  color: white;
+  float: right;
+  clear: both;
+}
+
+.received-message {
+  background-color: #f1f1f1;
+  float: left;
+  clear: both;
+}
+
 	</style>
 </head>
 <body>
@@ -215,7 +274,7 @@ hr{
 				
 				<ul class="main-nav js--main-nav">  
 					<li><a href="login.html">Home</a></li>
-					<li><a href="profile.html">My Account</a></li>
+					<li><a href="profile.html" onclick="get_profile()">My Account</a></li>
 					<li><a href="#" id="signout">Sign Out</a></li>
 					
 				</ul>
@@ -239,16 +298,16 @@ hr{
 	<div class="text-left"><h3>Account Setting</h3></div>
 	<div class="profile-container">
 				<div class="tab span-1-of-3">
-					<button class="tablinks" onclick="openCity(event, 'general')" id="defaultOpen">General</button>
-					<button class="tablinks" onclick="openCity(event, 'address-contact')">Addres & Contact</button>
+					<button class="tablinks" onclick="openCity(event, 'general'); get_profile()" id="defaultOpen">General</button>
+					<button class="tablinks" onclick="openCity(event, 'address-contact'); get_contact()">Address & Contact</button>
 					<button class="tablinks" onclick="openCity(event, 'change-password')">Change Password</button>
 					<button class="tablinks" onclick="openCity(event, 'no idea')">More Info</button>
-					<button class="tablinks" onclick="openCity(event, 'social-links')">Social links</button>
-					<button class="tablinks" onclick="openCity(event, 'notification')">Notification setting</button>
+					<button class="tablinks" onclick="openCity(event, 'social-links'); get_social_links()">Social links</button>
+					<button class="tablinks" onclick="openCity(event, 'notification') ; startChat('3kfvgRSBxLVx2vpTPASdidVED9T2')">Notification setting</button>
 				  </div>
 
 		<div class="profile-tab-content-container span-2-of-3">
-			<form class="card-body"  id="general">
+			<Form class="card-body"  id="general">
 				<div class="profilepicsection">
 					<img class="profilepicture" id="displayImage" alt="Profile_Image" > 
 					<div class="uploadsection">
@@ -259,16 +318,16 @@ hr{
 				</div>
 				
 				<div class="form-group">
-					<label class="label">First Name</label>
-					<input type="text" placeholder="First-name" id="firstname">
+					<label class="label">First Name:</label>
+					<input type="text" placeholder="Enter First-name" id="firstname" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">Last Name</label>&nbsp;
-					<input type="text" placeholder="Last-name" id="lastname">
+					<label class="form-label">Last Name:</label>&nbsp;
+					<input type="text" placeholder="Enter Last-name" id="lastname" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">E-mail</label>
-					<input type="email" placeholder="Email" id="email">
+					<label class="form-label">E-mail:</label>
+					<input type="email" placeholder="Enter Email Address" id="email" r>
 					<div class="alert alert-warning">
 						Your email is not confirmed. Please check your inbox.
 						<br>
@@ -278,115 +337,130 @@ hr{
 				</div>
 				<div class="form-group">
 					<label class="form-label" >Gender:</label>
-					<select class="custom-selects" id="gender">
+					<select class="custom-selects" id="gender" required>
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
 						<option value="Others">Other</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label class="form-label">Date Of Birth (DOB)</label>
-					<input type="text" placeholder="[YYYY-MM-DD]" pattern="\d{4}-\d{2}-\d{2}" id="dob" required>
+					<label class="form-label">Date Of Birth (DOB):</label>
+					<input type="text" placeholder="[RR-MM-YYYY]" pattern="\d{2}-\d{2}-\d{4}" id="dob" required>
 				</div>
-			</form>
+				<div class="text-right">
+					<button class="btn btn-primary" id="submit" onclick="update_profile(); get_profile()">Save Changes</button>
+				</div>
+			</Form>
 
 			<!--Change password Tab content -->
 			<div class="card-body"  id="change-password">
 				<div class="form-group">
-					<label class="form-label">Current password</label>
-					<input type="password" placeholder="" id="firstname">
+					<label class="form-label">Current password:</label>
+					<input type="password" placeholder="" id="currentPassword" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">New password</label>
-					<input type="password" placeholder="" id="lastname">
+					<label class="form-label">New password:</label>
+					<input type="password" placeholder="" id="newPassword" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">Repeat new password</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Repeat new password:</label>
+					<input type="password" placeholder="" id="repeatPassword" required>
+				</div>
+				<div class="text-right">
+					<button class="btn btn-primary" id="submit" onclick="updatePassword()">Save Changes</button>
 				</div>
 			</div>
 
 			<div class="card-body"  id="address-contact">
 				<div class="form-group">
-					<label class="form-label">Mobile no</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Mobile no:</label>
+					<input type="text" placeholder="" id="phone" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">Email</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Secondary_Email:</label>
+					<input type="email" placeholder="" id="s_email">
 				</div>
 				<br>
 				<h3>Address</h3>
 				<br>
 				<div class="form-group">
-					<label class="form-label">Name</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Name:</label>
+					<input type="email" placeholder="" id="email" >
 				</div>
 				<div class="form-group">
-					<label class="form-label">Address Line 1</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Address Line 1:</label>
+					<input type="text" placeholder="" id="a_line1" required>
 				</div>
 				<div class="form-group">
-					<label class="form-label">Address Line 2</label>
-					<input type="password" placeholder="" id="email">
+					<label class="form-label">Address Line 2(Optional):</label>
+					<input type="text" placeholder="" id="a_line2">
 				</div>
 				<div class="form-group">
-					<label class="form-label">Landmark</label>
-					<input type="password" placeholder="" id="email">
-				</div>
-				<div class="form-group">
-					<div class="col span-1-of-2">
-						<label class="form-label">Country</label>
-						<input type="password" placeholder="" id="email">
-					</div>
-					<div class="col span-1-of-2">
-						<label class="form-label">State</label>
-						<input type="password" placeholder="" id="email">
-					</div>
+					<label class="form-label">Landmark:</label>
+					<input type="text" placeholder="" id="lm" required>
 				</div>
 				<div class="form-group">
 					<div class="col span-1-of-2">
-						<label class="form-label">City</label>
-						<input type="password" placeholder="" id="email">
+						<label class="form-label">Country:</label>
+						<input type="text" placeholder="" id="country" required>
 					</div>
 					<div class="col span-1-of-2">
-						<label class="form-label">Pin Code</label>
-						<input type="password" placeholder="" id="email">
+						<label class="form-label">State:</label>
+						<input type="text" placeholder="" id="state" required>
 					</div>
 				</div>
+				<div class="form-group">
+					<div class="col span-1-of-2">
+						<label class="form-label">City:</label>
+						<input type="text" placeholder="" id="city" required>
+					</div>
+					<div class="col span-1-of-2">
+						<label class="form-label">Pin Code:</label>
+						<input type="text" placeholder="" id="pin" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="text-right">
+						<button class="btn btn-primary" id="update_contact" onclick="update_contact()">Save Changes</button>&nbsp;
+						
+					</div>
+				</div>
+
 			</div>
 			<div class="card-body" id="social-links">
 				<div class="form-group">
 					<label class="form-label">Facebook</label>
-					<input type="text" placeholder="https://www.facebook.com/user" id="lastname">
+					<input type="text" placeholder="https://www.facebook.com/user" id="facebook">
 				</div>
 				<div class="form-group">
 					<label class="form-label">Twitter</label>
-					<input type="text" placeholder="https://www.twitter.com/user" id="lastname">
+					<input type="text" placeholder="https://www.twitter.com/user" id="twitter">
 				</div>
 				<div class="form-group">
 					<label class="form-label">Linkedin</label>
-					<input type="text" placeholder="https://www.kinkedin.com/user" id="lastname">
+					<input type="text" placeholder="https://www.kinkedin.com/user" id="linkedin">
 				</div>
 				<div class="form-group">
 					<label class="form-label">Instagram</label>
-					<input type="text" placeholder="https://www.instagram.com/user" id="lastname">
+					<input type="text" placeholder="https://www.instagram.com/user" id="instagram">
+				</div>
+				<div class="text-right">
+					<button class="btn btn-primary" id="submit" onclick="update_social_links()">Save Changes</button>
 				</div>
 			</div>
-			<form class="card-body" id="notification">
-				<div class="form-group  switcher">
-					
-						<input type="checkbox">
-						<label class="form-label">Email me when someone comments on my article.</label>
-				</div>
-			</form>
+			<div class="card-body" id="notification">
+				<div id="chat-container">
+					<div id="chat-header"></div>
+					<div id="chat" class="sent-message"></div>
+					<input type="text" id="message-input" placeholder="Type your message">
+					<button onclick="sendMessage()" id="send-button">Send</button>
+				  </div>
+				  
 		</div>
 	
-
 	</div>
-	<div class="text-right">
-	<button class="btn btn-primary" id="submit" onclick="update()">Save Changes</button>&nbsp;
-	<button class="btn btn-primary" id="submit" onclick="get()">cancel</button>
+	</div>
+	
 		<!-- Tab links -->
 
   
@@ -396,9 +470,9 @@ hr{
   </div>
   
   
-     </div>
+     
 
-  </div>
+  
 	<!-- Footer section -->
 
 	<footer>
@@ -489,7 +563,7 @@ hr{
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 	  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-	  <script src="resource/js/ftest.js"></script>
+	  <script src="resources/js/ftest.js"></script>
     <script src="resources/js/script2.js"></script>
 	<script src="resources/js/signup.js"></script>
     
@@ -510,7 +584,45 @@ hr{
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
- 
+function updateContent() {
+  // Get the active tab
+  var activeTab = document.querySelector('.tablinks.active');
+
+  if (activeTab) {
+    // Get the ID of the active tab (e.g., "general")
+    var activeTabId = activeTab.getAttribute('id');
+
+    // Get the form associated with the active tab
+    var activeForm = document.getElementById(activeTabId);
+
+    if (activeForm) {
+      // Get form input values
+      var formData = {};
+      activeForm.querySelectorAll('input, select').forEach(input => {
+        formData[input.name] = input.value;
+      });
+
+      console.log('Form Data:', formData); // For debugging
+
+      // Update form input values in Firebase
+      const userId = firebase.auth().currentUser.uid;
+      const dataRef = firebase.database().ref(`forms/${activeTabId}/${userId}`);
+      dataRef.update(formData)
+        .then(() => {
+          console.log('Form input values updated in Firebase');
+        })
+        .catch((error) => {
+          console.error('Error updating form input values in Firebase:', error);
+        });
+    } else {
+      console.error('Form not found for active tab: ' + activeTabId);
+    }
+  } else {
+    console.error('Active tab not found');
+  }
+}
+
+
 	</script>
 
 	<script>
@@ -520,39 +632,43 @@ document.getElementById("defaultOpen").click();
 });
 
 	</script>
-<script>
-	function updateActiveForm() {
-      // Get the current user ID (assuming user is authenticated)
-      const userId = firebase.auth().currentUser.uid;
+	<script>
+		 function performActionOnActiveTab() {
+    // Get the ID of the active tab
+    var activeTab = document.querySelector('.tablinks.active');
 
-      // Determine the active form dynamically
-      const activeForm = document.querySelector('form.active');
+    if (activeTab) {
+      var activeTabId = activeTab.id;
 
-      if (!activeForm) {
-        console.error('No active form found.');
-        return;
+      // Perform different actions based on the active tab
+      switch (activeTabId) {
+        case 'defaultOpen':
+          // Action for the 'general' tab
+          // Call a function or perform specific logic
+          console.log('Performing action for General tab',activeTabId);
+          break;
+        case 'address-contact':
+          // Action for the 'address-contact' tab
+          // Call a different function or perform specific logic
+          console.log('Performing action for Address & Contact tab');
+          break;
+        // Add cases for other tabs as needed
+        default:
+          // Default action if the active tab is not handled
+          console.log('Performing default action');
+          break;
       }
-
-      // Get data from the active form
-      const formData = {};
-      activeForm.querySelectorAll('input').forEach(input => {
-        formData[input.name] = input.value;
-      });
-
-      // Determine the path based on the active form
-      const formId = activeForm.id;
-      const dataRef = database.ref(`${formId}s/${userId}`);
-
-      // Update the data in the database
-      dataRef.update(formData)
-        .then(() => {
-          console.log('Data updated successfully!');
-        })
-        .catch((error) => {
-          console.error('Error updating data:', error);
-        });
+    } else {
+      console.log('No active tab found');
     }
+  }
+
 </script>
+<script>
+
+
+</script>
+	
 
 </body>
 </html>
